@@ -13,7 +13,11 @@ export default {
         "semiwhite":"#d0f4de",
         "nav":"#1b2cc1"
 
-       }
+       },
+       spacing: {
+        '128': '29rem',
+        "129":'32rem'
+      }
     },
   },
   plugins: [],

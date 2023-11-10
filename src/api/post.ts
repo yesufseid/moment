@@ -1,9 +1,6 @@
-// import axios from "axios";
-
 
 
  export const getPost =async () => {
-   
   const res=await fetch("semntun-beterik-api.vercel.app/api/post/4",{
     method:"GET"
   })
@@ -11,23 +8,22 @@
   return post
 }
 
-
-
-
-
-export const getallPost =async () => {
+export const getallPost =async()=> {
+  console.log("hellow");
+  
   const session=window.localStorage
   const accessToken=session.accessToken
    
-  const res=await fetch("https://semntun-beterik-api.onrender.com/api",{
+  const res=await fetch("http://localhost:3000/api/allposts/allposts?location=",{
      method:"GET",
      headers: {
       'Content-Type': 'application/json',
       'Authorization':accessToken
     },
+   }).then((res)=>{
+    res.json().then((data:unknown)=>data)
    })
-   const post=res.json()
-   return post
+   
  }
  
  export const DeletePost =async (id) => {
@@ -44,3 +40,10 @@ export const getallPost =async () => {
    const post=res.json()
    return post
  }
+
+
+
+
+
+
+

@@ -14,7 +14,7 @@ export default function Profile({onClick}:props) {
 
 
   return (
-    <motion.div className="w-auto bg-slate-400  absolute top-32 left-1/3 shadow-2xl rounded-lg p-7 justify-center"
+    <motion.div className="w-auto bg-slate-400  absolute top-32 md:left-1/3 left-5 z-20 shadow-2xl rounded-lg p-7 justify-center"
      initial={{y:'-100vh'}}
      animate={{y:0}}
      transition={{duration:0.5, delay:0.5, type:"spring", stiffness:120 }}

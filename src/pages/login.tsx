@@ -32,7 +32,7 @@ export default function login() {
  const getUser =async ()=>{
  if(email.length===0&&pasword.length===0) return  setValidat(true)
 setLoading(true)
-const res=await fetch("https://semntun-beterik-api.onrender.com/api/login",options)
+const res=await fetch("http://localhost:3000/api/login",options)
 setLoading(false)
    if(res.status===500) return setError(true)
    if(res.ok){
