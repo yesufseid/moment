@@ -4,6 +4,7 @@ import Home from "../pages/Home"
 import Login from "../pages/login";
 import NotFound from "../pages/notFound";
 import Register from "../pages/register"
+import History from "../pages/history"
 
 
 
@@ -13,6 +14,7 @@ const router = createBrowserRouter(
         <Route index element={<Home/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
+        <Route path="/history" element={<History />} />
         <Route path="/*" element={<NotFound />} />
       </Route>
     )

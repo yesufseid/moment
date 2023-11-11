@@ -11,12 +11,13 @@ export default {
         'Richblack':'#2193b0',
         "bray":"#6dd5ed",
         "semiwhite":"#d0f4de",
-        "nav":"#1b2cc1"
+        "nav":"#494a4d"
 
        },
        spacing: {
         '128': '29rem',
-        "129":'32rem'
+        "129":'32rem',
+        '130':'32rem'
       }
     },
   },

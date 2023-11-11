@@ -9,20 +9,21 @@
 }
 
 export const getallPost =async()=> {
-  console.log("hellow");
+  console.log("fuck");
   
   const session=window.localStorage
   const accessToken=session.accessToken
    
-  const res=await fetch("http://localhost:3000/api/allposts/allposts?location=",{
+  const res=await fetch("http://localhost:3000/api/allposts/allposts?location="+90,{
      method:"GET",
      headers: {
       'Content-Type': 'application/json',
       'Authorization':accessToken
     },
-   }).then((res)=>{
-    res.json().then((data:unknown)=>data)
    })
+   const posts=res.json()
+   return posts
+   
    
  }
  

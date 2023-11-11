@@ -7,10 +7,13 @@ import {getallPost,} from "./post"
 
 
 
-export const Coustemgetallpost=(location)=>{
+export const Coustemgetallpost=(onSuccess,onError)=>{
     console.log(location);   
-return useQuery({
-    queryKey:["posts"],
-    queryFn:getallPost
+return useQuery(['posts'],getallPost,{
+    onSuccess,
+    onError,
+    select:(data)=>{
+        return data.AllPosts
+    }
 })
 }
