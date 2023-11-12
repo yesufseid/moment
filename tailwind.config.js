@@ -8,15 +8,21 @@ export default {
   theme: {
     extend: {
        colors:{
-        'Richblack':'#2193b0',
-        "bray":"#6dd5ed",
+        'Richblack':'#2c3e50',
         "semiwhite":"#d0f4de",
-        "nav":"#494a4d"
+        "nav":"#494a4d",
+        "ss":"#434343",
+        "dd":"#000000",
+        "bottem":"#323232",
+        "xx":" #3F3F3F",
+        "bb":"#1C1C1C"
+
+        
 
        },
        spacing: {
-        '128': '29rem',
-        "129":'32rem',
+        '128': '26rem',
+        "129":'31.3rem',
         '130':'32rem'
       }
     },

@@ -14,16 +14,16 @@ type menuprops={
 export default function Menu({onClick,children}:menuprops) {
 
   return (
-    <motion.div className="w-96 h-screen absolute top-0 left-0 bottom-0 bg-nav z-20"
+    <motion.div className="w-96 h-screen absolute top-0 left-0 bottom-0 bg-black  "
      initial={{x:'-100vw'}}
      animate={{x:0,}}
      transition={{duration:1,type:"spring" , when:"beforeChildern"}}
      exit={{x:-1000}}
      
     >
-        <div className="mb-20 border-b-orange-500 border-2 flex items-center">
+        <div className="bg-gradient-to-r      from-bottem from-0% via-xx via-40% to-bb to-150%    pt-3  pb-5">
+        <DangerousIcon  className="ml-80  mr-5 hover:bg-slate-400 cursor-pointer" fontSize="large" onClick={()=>onClick(prev=>!prev)}/>
         <Logoprofile />
-        <DangerousIcon  className="ml-auto mr-5" fontSize="large" onClick={()=>onClick(prev=>!prev)}/>
         </div>
         <div>
         {children}

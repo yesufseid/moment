@@ -29,11 +29,11 @@ const [data,setData]=useState([])
 
 
   return (
-    <div className='h-screen bg-gradient-to-r from-Richblack to-bray items-center '>
+    <div className=' md:h-full h-screen md:w-full w-screen   bg-gradient-to-r  from-bottem from-0% via-xx via-40% to-bb to-150% items-center '>
         <Layout />
-        <div className="w-screen   md:mx-auto  mt-28 md:mt-0 ">
+        
         <Card data={data} />
-        </div>
+       
     </div>
   )
 }

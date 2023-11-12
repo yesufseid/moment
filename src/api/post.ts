@@ -8,13 +8,12 @@
   return post
 }
 
-export const getallPost =async()=> {
-  console.log("fuck");
-  
+export const getallPost =async(location)=> {
+  console.log("fuvj");
   const session=window.localStorage
   const accessToken=session.accessToken
    
-  const res=await fetch("http://localhost:3000/api/allposts/allposts?location="+90,{
+  const res=await fetch("http://localhost:3000/api/allposts/allposts?location="+location,{
      method:"GET",
      headers: {
       'Content-Type': 'application/json',

@@ -37,7 +37,7 @@ export default function Profile({onClick}:props) {
     </div> 
    )} 
   <div className="flex justify-end align-middle pb-2">
-  <Button className="w-24  pt-2" variant="outlined">{false&&(<div className="flex mx-2"><CircularProgress size={20}/></div>)}Save</Button>
+  <Button className="w-24  pt-2 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500" variant="outlined">{false&&(<div className="flex mx-2"><CircularProgress size={20}/></div>)}Save</Button>
   <AddIcon onClick={()=>setAdd((prev)=>[...prev,"q"])}  fontSize="large" className="rounded-full
   text-4xl   ml-2 md:mr-0 mr-5 border-2 border-slate-900   hover:bg-slate-900  text-center  "/>
   </div>

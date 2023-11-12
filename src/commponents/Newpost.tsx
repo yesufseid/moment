@@ -3,14 +3,43 @@ import {motion} from "framer-motion"
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import DangerousIcon from '@mui/icons-material/Dangerous';
-
+import {request} from "../utils/axios-utils"
 
 type props ={
     onClick?:()=>void
   }
 export default function Profile({onClick}:props) {
-   
+   const [lat,setLat]=useState("")
+   const [long,setLong]=useState("")
+   const [quate,setQuate]=useState("")
 
+   
+const handleSubmit=async()=>{
+  const session=window.localStorage
+  const id=session.id
+    const lats=Number(lat)
+    const longs=Number(long)
+   const resultant:number=lats*lats+longs*longs 
+   const location=Math.sqrt(resultant)
+  return request({
+   method:'post',
+   url: '/post',
+   data: {
+     location:location,
+     quate:quate,
+     authorId:id,
+     }})
+    
+}
+   const handlelatChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    return setLat(event.target.value);
+  };
+  const handlelongChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    return setLong(event.target.value);
+  };
+  const handlequateChange = (event) => {
+    return setQuate(event);
+  };
 
 
   return (
@@ -29,14 +58,14 @@ export default function Profile({onClick}:props) {
         <label className="ml-4">Long</label>
         </div>
         
-    <input type="text " placeholder="67.234" className="w-32 h-10 border-2 border-zinc-950 rounded-2xl my-2 mx-2"  />
-    <input type="text " placeholder="43.28728" className="w-32 h-10 border-2 border-zinc-950 rounded-2xl my-2"  />
+    <input onChange={handlelongChange}  type="text " placeholder="67.234" className="w-32 h-10 border-2 border-zinc-950 rounded-2xl my-2 mx-2"  />
+    <input  onChange={handlelatChange}    type="text " placeholder="43.28728" className="w-32 h-10 border-2 border-zinc-950 rounded-2xl my-2"  />
     </div>
     <h1 className="font-bold">quate</h1>
-    <div className=""><textarea   placeholder="your red dress is awsome" className="w-60 h-20 caret-pink-500 border-2
+    <div className=""><textarea onChange={(e)=>handlequateChange(e.currentTarget.value)}  placeholder="your red dress is awsome" className="w-60 h-20 caret-pink-500 border-2
      border-zinc-950 rounded-2xl my-2" /></div>
      <div className="flex justify-end align-middle pb-2">
-  <Button className="w-24  pt-2" variant="outlined">{false&&(<div className="flex mx-2"><CircularProgress size={20}/></div>)}Save</Button>
+  <Button onClick={handleSubmit} className="w-24  pt-2 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500" variant="outlined">{false&&(<div className="flex mx-2"><CircularProgress size={20}/></div>)}Save</Button>
   </div>
      
     </motion.div>

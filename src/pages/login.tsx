@@ -55,6 +55,7 @@ const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => 
   event.preventDefault();
 };
   return (
+    <div className="bg-gradient-to-r from-ss to-dd h-screen w-screen">
     <div className=" md:absolute md:top-24 md:left-1/3" >
     <div className="flex justify-center md:w-96 md:h-96  h-screen  first-line:px-20 bg-slate-500  rounded-md shadow-2xl transition ease-out  hover:-translate-y-1 hover:scale-110 duration-300">
       <div className="my-auto">
@@ -90,6 +91,7 @@ const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => 
            rounded-full align-middle">{loding?(<h1>LOADING</h1>):(<h1>SignIn</h1>)}</button>
         </div>
         </div> 
+    </div>
     </div>
     </div>
   )

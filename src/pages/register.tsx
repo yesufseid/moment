@@ -17,12 +17,18 @@ export default function login() {
   const [loding,setLoading]=useState(false)
   const [showPassword, setShowPassword] =useState(false)
   const [email,setEmail]=useState("")
+  const [firstname,setFirstname]=useState("")
+  const [lastname,setLastname]=useState("")
   const [pasword,setPassword]=useState("")
   const [validat,setValidat]=useState(false)
     const data={
         email:email,
-        password:pasword
+        password:pasword,
+        firstname:firstname,
+        lastname:lastname
     }
+    console.log(data);
+    
     const options = {
         method: 'POST',
         headers: {
@@ -33,7 +39,7 @@ export default function login() {
  const getUser =async ()=>{
  if(email.length===0&&pasword.length===0) return  setValidat(true)
 setLoading(true)
-const res=await fetch("semntun-beterik-api.vercel.app/api/register",options)
+const res=await fetch("http://localhost:3000/api/register",options)
 setLoading(false)
    if(res.status===500) return <Error />
    if(res.ok){
@@ -57,12 +63,16 @@ const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => 
 };
   return (
     <>
-    <Navbar />
-    <div className=" md:absolute md:top-24 md:left-1/3" >
+    <div className="bg-gradient-to-r from-ss to-dd h-screen w-screen">
+    <div className=" md:absolute md:top-24 md:left-1/3 " >
     <div className="flex justify-center md:w-96 md:h-96  h-screen  first-line:px-20 bg-slate-500  rounded-md shadow-2xl transition ease-out  hover:-translate-y-1 hover:scale-110 duration-300">
       <div className="my-auto">
       <div className="pb-2 ml-1">
-      <label htmlFor=""className="py-2" >Email</label><br />
+      <label htmlFor=""className="py-2" >FirstName</label><br />
+        <Input  inputProps={ariaLabel}  onChange={(e)=>setFirstname(e.target.value)} /><br />
+        <label htmlFor=""className="py-2" >LastName</label><br />
+        <Input  inputProps={ariaLabel}  onChange={(e)=>setLastname(e.target.value)} /><br />
+        <label htmlFor=""className="py-2" >Email</label><br />
         <Input  inputProps={ariaLabel}  onChange={(e)=>setEmail(e.target.value)} /><br />
       </div>
        
@@ -92,6 +102,7 @@ const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => 
            rounded-full align-middle">{loding?(<h1>loading</h1>):(<h1>Register</h1>)}</button>
         </div>
         </div> 
+    </div>
     </div>
     </div>
     </>

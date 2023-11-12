@@ -19,9 +19,9 @@ type props={
 export default function AlignItemsList({data}:props) {
   const dat=[1,2,3,4,5,6,7]
   return (
-    <div className='overflow-auto h-128 md:h-129 '> 
+    <div className='overflow-auto h-128 w-full md:h-129  md:mt-0 mt-24'> 
     {dat?.map(()=> 
-    <motion.div  className='flex border-2 border-zinc-500 justify-center md:w-96 w-80  mx-auto  my-3 rounded-lg'
+    <motion.div  className='flex border-2 border-zinc-500 justify-center md:w-96 w-80  mx-auto  my-3 rounded-lg  bg-gradient-to-r from-cyan-500 to-blue-500'
      initial={{y:'1000'}}
      animate={{y:0}}
      transition={{duration:1.5, delay:1}}

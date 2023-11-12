@@ -27,8 +27,8 @@ return (
     <div >
         
     <motion.div onClick={handleMenuItemClick}
-    className="border-2 flex border-indigo-500/100  py-3 px-3  my-5 items-center w-56  
-    rounded-md text-center hover:bg-indigo-500/100 mx-auto z-20 justify-center"
+    className="border-2 flex border-indigo-500/100  py-3 px-3  my-10 items-center w-56  cursor-pointer
+    rounded-md text-center bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 mx-auto z-20 justify-center"
     initial={{x:'-100vw'}}
     animate={{x:0,}}
     transition={{duration:0.5, type:"spring", stiffness:50,when:"beforeChildern"}}
@@ -38,8 +38,8 @@ return (
 
     </motion.div>
     <motion.div onClick={handle}
-    className="border-2 flex border-indigo-500/100  py-3 px-3  my-14 items-center w-56 
-    rounded-md text-center hover:bg-indigo-500/100 mx-auto z-20 justify-center"
+    className="border-2 flex border-indigo-500/100  py-3 px-3  my-14 items-center w-56 cursor-pointer
+    rounded-md text-center bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 mx-auto z-20 justify-center"
     initial={{x:'-100vw'}}
     animate={{x:0,}}
     transition={{duration:0.5, type:"spring", stiffness:50,when:"beforeChildern"}}
@@ -49,8 +49,8 @@ return (
 
     </motion.div>
     <motion.div  onClick={newHandle}
-    className="border-2 flex border-indigo-500/100  py-3 px-3  my-14 items-center w-56 
-    rounded-md text-center hover:bg-indigo-500/100 mx-auto z-20 justify-center"
+    className="border-2 flex border-indigo-500/100  py-3 px-3  my-14 items-center w-56 cursor-pointer
+    rounded-md text-center bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 mx-auto z-20 justify-center"
     initial={{x:'-100vw'}}
     animate={{x:0,}}
     transition={{duration:0.5, type:"spring", stiffness:50,when:"beforeChildern"}}
