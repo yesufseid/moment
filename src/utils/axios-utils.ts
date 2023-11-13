@@ -1,16 +1,13 @@
 import axios from "axios";
 const client=axios.create({baseURL:'http://localhost:3000/api'})
-
 export const  request=({...options})=>{
   console.log("dddd");
     const session=window.localStorage
   const accessToken=session.accessToken
     client.defaults.headers.common.Authorization=accessToken
-    const onSuccess=(response)=>console.log(response);
+    const onSuccess=(response)=>response.data.AllPosts
     const onError=(error)=>{
-        return console.log(error);
-        
-        
+        return error  
     }
     
     

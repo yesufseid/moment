@@ -1,5 +1,4 @@
-import Navbar from '../commponents/Navbar';
-
+import Loading from '../commponents/UI/Loading';
 import * as React from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -10,17 +9,47 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import {motion} from "framer-motion"
 import Layout from "../commponents/Layout"
+import { Coustemgetallhistorypost } from '../api/historyapi';
 
-
-
+type authorprops={
+  id:string
+  firstname:string
+  lastname:string
+  email:string
+  password:string
+  post:postes
+}
+type postes={
+  id:string
+  status:string
+  location:number
+  quate:string
+  author:authorprops
+  authorId:string
+}
 
 export default function AlignItemsList() {
-  const dat=[1,2,3,4,5,6,7]
+  const session=window.localStorage
+  const id=session.id
+
+  const props ={
+    onSuccess:(data)=>{
+        console.log(data);
+        
+    },
+    onError:(error)=>{
+      console.log(error);
+      
+    },
+    id:id
+  }
+  const {data,isLoading}=Coustemgetallhistorypost(props)
   return (
     <div className=' bg-gradient-to-r  from-bottem from-0% via-xx via-40% to-bb to-150%  items-center h-screen'>
     <Layout />
-    <div className='overflow-auto h-129  mt-28 md:mt-0'> 
-    {dat?.map(()=> 
+    {isLoading?(<Loading />):(
+    <div className='overflow-auto h-129 '> 
+    {data.post?.map((post:postes)=> 
     <motion.div  className='flex border-2 border-zinc-500 justify-center md:w-96 w-80  mx-auto  my-3 rounded-lg  bg-gradient-to-r from-cyan-500 to-blue-500'
      initial={{y:'1000'}}
      animate={{y:0}}
@@ -33,7 +62,7 @@ export default function AlignItemsList() {
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
         </ListItemAvatar> 
         <ListItemText
-          primary="Brunch this weekend?"
+          primary={data.firstname +" "+ data.lastname}
           secondary={
             <React.Fragment>
               <Typography
@@ -42,9 +71,8 @@ export default function AlignItemsList() {
                 variant="body2"
                 color="text.primary"
               >
-                Ali Connors
+                 {post?.quate}
               </Typography>
-              {" — I'll be in your neighborhood doing errands this…"}
             </React.Fragment>
           }
         />
@@ -56,6 +84,7 @@ export default function AlignItemsList() {
       </motion.div>
       )}
       </div>
+      )}
       </div>
   );
 }

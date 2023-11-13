@@ -15,7 +15,7 @@ export default function Search({fun}:searchParam) {
  const handleSubmit=()=>{
   const lats=Number(lat)
   const longs=Number(long)
-  const radis=Number(raduis)
+  const radis=Number(raduis)/115
  const resultant:number=lats*lats+longs*longs
  const location=Math.sqrt(resultant)+radis
  return fun(location)
