@@ -6,6 +6,9 @@ type coustemprops ={
     onSuccess:(test)=>void
     onError:(test)=>void
 }
+type dataprops={
+    AllPosts:[]
+}
 const getposts=(id)=>{
     console.log(id);
     
@@ -13,13 +16,12 @@ const getposts=(id)=>{
     url:'/user/userposts/'+id,
     })
 }
-
 export const Coustemgetallhistorypost=({onSuccess,onError,id}:coustemprops)=>{      
 return useQuery(['posts',id],()=>getposts(id),{
     onSuccess,
     onError,
-    select:(data:[])=>{
-        return data  
+    select:(data:dataprops)=>{
+        return data.AllPosts 
     },
     // enabled:false
 })

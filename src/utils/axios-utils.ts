@@ -5,7 +5,7 @@ export const  request=({...options})=>{
     const session=window.localStorage
   const accessToken=session.accessToken
     client.defaults.headers.common.Authorization=accessToken
-    const onSuccess=(response)=>response.data.AllPosts
+    const onSuccess=(response)=>response.data
     const onError=(error)=>{
         return error  
     }
