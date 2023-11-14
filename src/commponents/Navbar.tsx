@@ -4,6 +4,7 @@ import { AnimatePresence,motion } from "framer-motion"
 
 
 
+
 type NavbarProps={
   children?:React.ReactNode
   openMenu?:React.Dispatch<React.SetStateAction<boolean>>

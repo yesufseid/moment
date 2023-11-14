@@ -1,5 +1,4 @@
 import {motion} from 'framer-motion'
-
 export default function Logo() {
   return (
     <div>
@@ -44,7 +43,7 @@ d="M 15 2 C 13.355469 2 12 3.355469 12 5 L 12 6.53125 L 11.875 6.125 C 11.398438
 
 
 export const Logoprofile=()=>{
-
+  
   return (
     <div className="w-20 h-20 border-2 border-sky-600 shadow-2xl rounded-full cursor-pointer
     text-2xl ml-14 mb-2 mt-5 items-center flex justify-center

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import {request} from "../utils/axios-utils"
 
 type coustemprops ={
-    id:number
+    id:string
     onSuccess:(test)=>void
     onError:(test)=>void
 }

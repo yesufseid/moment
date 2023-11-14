@@ -1,26 +1,29 @@
 import { useQuery } from "@tanstack/react-query";
 import {request} from "../utils/axios-utils"
 
+
 type coustemprops ={
     location:number
-    onSuccess:(test)=>void
-    onError:(test)=>void
+    // onSuccess:(test)=>React.ReactNode
+    // onError:(test)=>React.ReactNode
+    onSuccess:(test)=>unknown
+    onError:(test)=>unknown
 }
+
 type dataprops={
     AllPosts:[]
 }
 const getposts=(location)=>{
     return request({ method:'get',
-    url:'/allposts/allposts?location='+location,
+    url:'/allposts/allpost?location='+location,
     })
 }
 
-export const Coustemgetallpost=({onSuccess,onError,location}:coustemprops)=>{    
+export const Coustemgetallpost=({onError,onSuccess,location}:coustemprops)=>{    
 return useQuery(['posts',location],()=>getposts(location),{
     onSuccess,
     onError,
     select:(data:dataprops)=>{
-        console.log(data);
         return data.AllPosts 
     },
     enabled:false

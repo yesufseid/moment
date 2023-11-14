@@ -10,6 +10,8 @@ import Typography from '@mui/material/Typography';
 import {motion} from "framer-motion"
 import Layout from "../commponents/Layout"
 import { Coustemgetallhistorypost } from '../api/historyapi';
+import MakeSession from "../utils/useSession"; 
+import { useNavigate } from 'react-router-dom';
 
 type authorprops={
   id:string
@@ -29,8 +31,11 @@ type postes={
 }
 
 export default function AlignItemsList() {
-  const session=window.localStorage
-  const id=session.id
+  const{Expair,session}=MakeSession()
+  const Navigat=useNavigate()
+  if(!Expair())  Navigat("/login")
+  const id=session().id
+
 
   const props ={
     onSuccess:(data)=>{

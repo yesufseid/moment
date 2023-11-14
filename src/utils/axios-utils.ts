@@ -1,13 +1,13 @@
 import axios from "axios";
+
+import MakeSession from "./useSession";
 const client=axios.create({baseURL:'http://localhost:3000/api'})
 export const  request=({...options})=>{
-  console.log("dddd");
-    const session=window.localStorage
-  const accessToken=session.accessToken
-    client.defaults.headers.common.Authorization=accessToken
+  const {session}=MakeSession()
+    client.defaults.headers.common.Authorization=session().accessToken
     const onSuccess=(response)=>response.data
     const onError=(error)=>{
-        return error  
+        return error
     }
     
     

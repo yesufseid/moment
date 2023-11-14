@@ -42,7 +42,8 @@ setLoading(false)
         email:user.user.email,
         accessToken:user.accessToken
       }
-    makeSession(data)
+  const {Save}=makeSession()
+  Save(data)
     return Navigate("/")   
     }
  
