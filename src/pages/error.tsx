@@ -1,7 +1,7 @@
 
-import { motion } from "framer-motion"
+
 type errorprops={
-    onClick: React.Dispatch<React.SetStateAction<number>>
+    onClick:React.Dispatch<React.SetStateAction<number>>
 }
 
 export default function error({onClick}:errorprops) {
@@ -21,39 +21,39 @@ export default function error({onClick}:errorprops) {
 
 
 
-const loaderVariant={
-    animationOne:{
-        x:[-20,20],
-        y:[0,-30],
-        transition:{
-            x:{
-                yoyo:Infinity,
-                duration:0.5
-            },
-            y:{
-                yoyo:Infinity,
-                duration:0.25,
-                ease:"easeOut"
-            },
+// const loaderVariant={
+//     animationOne:{
+//         x:[-20,20],
+//         y:[0,-30],
+//         transition:{
+//             x:{
+//                 yoyo:Infinity,
+//                 duration:0.5
+//             },
+//             y:{
+//                 yoyo:Infinity,
+//                 duration:0.25,
+//                 ease:"easeOut"
+//             },
             
-        }
+//         }
 
-    },
+//     },
 
-}
+// }
 
-const Loader=()=>{
-    return(
-        <>
-        <motion.div className='loader'
-         variants={loaderVariant}
-         animate='animationOne'
-        >
+// const Loader=()=>{
+//     return(
+//         <>
+//         <motion.div className='loader'
+//          variants={loaderVariant}
+//          animate='animationOne'
+//         >
 
-        </motion.div>
+//         </motion.div>
         
-        </>
-    )
+//         </>
+//     )
 
-}
+// }
 
