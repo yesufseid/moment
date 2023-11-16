@@ -1,5 +1,4 @@
 import { useState } from "react";
-import makeSession from "../utils/useSession"; 
 import Input from '@mui/material/Input';
 import IconButton from '@mui/material/IconButton';
 import InputLabel from '@mui/material/InputLabel';
@@ -9,8 +8,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 const ariaLabel = { 'aria-label': 'description' };
 import {useNavigate } from "react-router-dom";
-import Error from "./error";
-import Navbar from "../commponents/Navbar";
+
 
 export default function login() {
   const Navigate=useNavigate()
@@ -41,7 +39,7 @@ export default function login() {
 setLoading(true)
 const res=await fetch("http://localhost:3000/api/register",options)
 setLoading(false)
-   if(res.status===500) return <Error />
+   if(res.status===500) return 
    if(res.ok){
       const user=await res.json()
       const data={
@@ -49,7 +47,6 @@ setLoading(false)
         email:user.user.email,
         accessToken:user.accessToken
       }
-    makeSession(data)
     return Navigate("/")   
     }
  
