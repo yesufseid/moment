@@ -36,7 +36,7 @@ const props ={
   data:data
 }
 
-const{refetch,isLoading,isFetching}=Coustemgetallnewpost(props)
+const{refetch,isFetching}=Coustemgetallnewpost(props)
 
 const handleSubmit=async()=>{
       return refetch()
@@ -53,10 +53,10 @@ const handleSubmit=async()=>{
 
 
   return (
-    <motion.div className="w-auto bg-slate-400  absolute top-32 md:left-1/3 left-5 z-20 shadow-2xl rounded-lg p-7 justify-center"
+    <motion.div className="w-auto bg-slate-400  h-129 absolute top-20 md:left-1/3 left-5 z-20 shadow-2xl rounded-lg p-7 justify-center"
      initial={{y:'-100vh'}}
      animate={{y:0}}
-     transition={{duration:0.5, delay:0.5, type:"spring", stiffness:120 }}
+     transition={{duration:1.5, delay:0.5, type:"spring", stiffness:30 }}
       exit={{y:-1000}}
     >  
     <DangerousIcon onClick={onClick} className="ml-60 hover:bg-white cursor-pointer"/>
@@ -71,11 +71,11 @@ const handleSubmit=async()=>{
     <input onChange={handlelongChange}  type="text " placeholder="67.234" className="w-32 h-10 border-2 border-zinc-950 rounded-2xl my-2 mx-2"  />
     <input  onChange={handlelatChange}    type="text " placeholder="43.28728" className="w-32 h-10 border-2 border-zinc-950 rounded-2xl my-2"  />
     </div>
-    <h1 className="font-bold">quate</h1>
-    <div className=""><textarea onChange={(e)=>handlequateChange(e.currentTarget.value)}  placeholder="your red dress is awsome" className="w-60 h-20 caret-pink-500 border-2
+    <h1 className="font-bold my-5">quate</h1>
+    <div className=""><textarea onChange={(e)=>handlequateChange(e.currentTarget.value)}  placeholder="your red dress is awsome" className="w-60 h-24 caret-pink-500 border-2
      border-zinc-950 rounded-2xl my-2" /></div>
      <div className="flex justify-end align-middle pb-2">
-  <Button onClick={handleSubmit} className="w-24  pt-2 bg-gradient-to-r
+  <Button onClick={handleSubmit} className="w-28 rounded-lg  pt-2 bg-gradient-to-r
    from-green-400 to-blue-500 hover:from-pink-500
     hover:to-yellow-500" variant="outlined">{isFetching&&(<div className="flex mx-2"><CircularProgress size={20}/></div>)}Save</Button>
   </div>

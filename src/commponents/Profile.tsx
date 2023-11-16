@@ -42,10 +42,10 @@ export default function Profile({onClick}:props) {
   }
 const {refetch,isFetching}=Coustempostprofile(props)
   return (
-    <motion.div className="w-auto bg-slate-400 h-96 overflow-auto  absolute top-32 md:left-1/3  z-20 left-5  shadow-2xl rounded-lg p-5"
+    <motion.div className="w-auto bg-slate-400 h-130 overflow-auto  absolute top-20  md:left-1/3  z-20 left-5  shadow-2xl rounded-lg p-5"
      initial={{y:'-100vh'}}
      animate={{y:0}}
-     transition={{duration:0.5, delay:0.5, type:"spring", stiffness:120 }}
+     transition={{duration:0.5, delay:0.5, type:"spring", stiffness:30 }}
     exit={{y:-1000}}
     >  
     <DangerousIcon onClick={onClick}   className=" md:ml-96 ml-64 hover:bg-white cursor-pointer"/>

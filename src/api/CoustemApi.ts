@@ -4,8 +4,6 @@ import {request} from "../utils/axios-utils"
 
 type coustemprops ={
     location:number
-    // onSuccess:(test)=>React.ReactNode
-    // onError:(test)=>React.ReactNode
     onSuccess:(test)=>unknown
     onError:(test)=>unknown
 }
@@ -14,6 +12,7 @@ type dataprops={
     AllPosts:[]
 }
 const getposts=(location)=>{
+    
     return request({ method:'get',
     url:'/allposts/allpost?location='+location,
     })

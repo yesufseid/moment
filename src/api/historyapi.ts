@@ -23,6 +23,6 @@ return useQuery(['posts',id],()=>getposts(id),{
     select:(data:dataprops)=>{
         return data.AllPosts 
     },
-    // enabled:false
+    enabled:false
 })
 }

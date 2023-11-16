@@ -11,7 +11,9 @@ import {motion} from "framer-motion"
 import Layout from "../commponents/Layout"
 import { Coustemgetallhistorypost } from '../api/historyapi';
 import MakeSession from "../utils/useSession"; 
+import {useMemo, useState } from "react"
 import { useNavigate } from 'react-router-dom';
+import Error from "./error";
 
 type authorprops={
   id:string
@@ -33,25 +35,37 @@ type postes={
 export default function AlignItemsList() {
   const{Expair,session}=MakeSession()
   const Navigat=useNavigate()
+  const [er,setEr]=useState(false)
+  const [refarash,setRefash]=useState(1)
+
+
   if(!Expair())  Navigat("/login")
   const id=session().id
-
-
   const props ={
     onSuccess:(data)=>{
         console.log(data);
         
     },
-    onError:(error)=>{
-      console.log(error);
-      
+    onError:()=>{
+        setEr(true)
     },
     id:id
   }
-  const {data,isLoading}=Coustemgetallhistorypost(props)
+
+  const {data,isLoading,refetch}=Coustemgetallhistorypost(props)
+  useMemo(()=>{
+    setEr(false)
+    return refetch()
+  }
+    ,[refarash])
+
+
+
   return (
     <div className=' bg-gradient-to-r  from-bottem from-0% via-xx via-40% to-bb to-150%  items-center h-screen'>
     <Layout />
+      {er?(<Error onClick={setRefash} />):(
+        <div>
     {isLoading?(<Loading />):(
     <div className='overflow-auto h-129 '> 
     {data.post?.map((post:postes)=> 
@@ -91,5 +105,8 @@ export default function AlignItemsList() {
       </div>
       )}
       </div>
+      )}
+      </div>
   );
+  
 }

@@ -6,16 +6,16 @@ export const  request=({...options})=>{
   const {session}=MakeSession()
     client.defaults.headers.common.Authorization=session().accessToken
     const onSuccess=(response)=>response.data
-    const onError=(error)=>{
-        return error
-    }
+    // const onError=(error)=>{
+    //     return error
+    // }
     
     
-    return client(options).then(onSuccess).catch(onError)
+    return client(options).then(onSuccess)
 }
 
 
-
+// .catch(onError)
 // method: 'post',
 // url: '/user/12345',
 // data: {
