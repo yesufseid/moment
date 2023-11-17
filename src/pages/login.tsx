@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import makeSession from "../utils/useSession"; 
 import Input from '@mui/material/Input';
 import IconButton from '@mui/material/IconButton';
@@ -9,45 +9,46 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 const ariaLabel = { 'aria-label': 'description' };
 import {useNavigate } from "react-router-dom";
-
+import  {Coustemlogin}  from "../api/login";
 export default function login() {
   const Navigate=useNavigate()
-  const [loding,setLoading]=useState(false)
   const [showPassword, setShowPassword] =useState(false)
-  const [email,setEmail]=useState("")
+  // const [email,setEmail]=useState("")
   const [pasword,setPassword]=useState("")
   const [error,setError]=useState(false)
   const [validat,setValidat]=useState(false)
+  const email=useRef(null)
+  
+  
     const data={
-        email:email,
+        email:email.current.value,
         password:pasword
     }
-    const options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      }; 
- const getUser =async ()=>{
- if(email.length===0&&pasword.length===0) return  setValidat(true)
-setLoading(true)
-const res=await fetch("https://moment-api-27e3.onrender.com/api/login",options)
-setLoading(false)
-   if(res.status===500) return setError(true)
-   if(res.ok){
-      const user=await res.json()
-      const data={
-        id:user.user.id,
-        email:user.user.email,
-        accessToken:user.accessToken
-      }
-  const {Save}=makeSession()
-  Save(data)
-    return Navigate("/")   
-    }
- 
-} 
+
+const {Save}=makeSession()
+const props ={
+  onSuccess:(data)=>{
+    const user={
+              id:data.id,
+              email:data.email,
+              accessToken:data.accessToken
+            }
+    Save(user)
+    return Navigate("/")  
+  },
+  onError:()=>{
+   return setError(true)
+  },
+  data:data
+}
+
+const {refetch,isFetching}=Coustemlogin(props)
+const handleSubmit=()=>{
+  console.log(email.current.value);
+  // if(email.length===0&&pasword.length===0) return setValidat(true)
+  return refetch()
+}
+
 
 
 const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -62,7 +63,7 @@ const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => 
       <div className="my-auto">
       <div className="pb-2 ml-1">
       <label htmlFor=""className="py-2" >Email</label><br />
-        <Input  inputProps={ariaLabel}  onChange={(e)=>setEmail(e.target.value)} /><br />
+        <Input  inputProps={ariaLabel}  ref={email}  /><br />
       </div>
        
        <FormControl sx={{ m: 1, width: '25ch' }} variant="standard" className="ml-0">
@@ -85,11 +86,12 @@ const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => 
           />
           
         </FormControl><br />
+
         <div>
         {error&&(<p className="text-red-600">wrong password</p>)}
           {validat&&(<p className="text-red-600">all fildes are requred</p>)}
-          <button onClick={()=>getUser()} className="flex w-32 py-2 my-5 mx-auto bg-slate-200 hover:outline hover:bg-transparent justify-center
-           rounded-full align-middle">{loding?(<h1>LOADING</h1>):(<h1>SignIn</h1>)}</button>
+          <button disabled={isFetching} onClick={()=>handleSubmit()} className="flex w-32 py-2 my-5 mx-auto bg-slate-200 hover:outline hover:bg-transparent justify-center
+           rounded-full align-middle">{isFetching?(<h1>LOADING</h1>):(<h1>SignIn</h1>)}</button>
         </div>
         </div> 
     </div>

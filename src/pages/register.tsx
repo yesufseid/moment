@@ -41,12 +41,6 @@ const res=await fetch("http://localhost:3000/api/register",options)
 setLoading(false)
    if(res.status===500) return 
    if(res.ok){
-      // const user=await res.json()
-      // const data={
-      //   id:user.user.id,
-      //   email:user.user.email,
-      //   accessToken:user.accessToken
-      // }
     return Navigate("/")   
     }
  

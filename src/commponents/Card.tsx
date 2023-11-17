@@ -34,9 +34,9 @@ export default function AlignItemsList({data}:props) {
     <div className='overflow-auto h-128 w-full md:h-129  md:mt-0 mt-24'> 
     {data?.map((post:postes)=> 
     <motion.div  className='flex border-2 border-zinc-500 justify-center md:w-96 w-80  mx-auto  my-3 rounded-lg  bg-gradient-to-r from-cyan-500 to-blue-500'
-     initial={{y:'1000'}}
+     initial={{y:'500'}}
      animate={{y:0}}
-     transition={{duration:1.5, delay:1}}
+     transition={{duration:1.5, delay:0.5}}
     
     >
     <List sx={{ width: '100%', maxWidth: 360, }}>

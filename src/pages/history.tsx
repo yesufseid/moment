@@ -68,11 +68,12 @@ export default function AlignItemsList() {
         <div>
     {isLoading?(<Loading />):(
     <div className='overflow-auto h-129 '> 
-    {data.post?.map((post:postes)=> 
+    {
+    data.post?.map((post:postes)=> 
     <motion.div  className='flex border-2 border-zinc-500 justify-center md:w-96 w-80  mx-auto  my-3 rounded-lg  bg-gradient-to-r from-cyan-500 to-blue-500'
-     initial={{y:'1000'}}
+     initial={{y:'500'}}
      animate={{y:0}}
-     transition={{duration:1.5, delay:1}}
+     transition={{duration:1.5, delay:0.5}}
     
     >
     <List sx={{ width: '100%', maxWidth: 360, }}>
