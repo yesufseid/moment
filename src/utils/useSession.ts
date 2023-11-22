@@ -15,7 +15,7 @@ const MakeSession=()=>{
               return root=false
           }
         if(Session.length===0)  root=false
-        if (now.getTime() >  Number(Session.expiry)) {
+        if (now.getTime() > Number(Session.expiry)) {
               localStorage.clear()
               return root=false
           }
@@ -24,7 +24,7 @@ const MakeSession=()=>{
     }
    
 const Save=({id,email,accessToken}:sessionProp)=>{
-    const time=String(now.getTime()+60*60*24*30)
+    const time=String(now.getTime()+60*60*24*30*10)
     console.log(time);
     
     Session.setItem("id",id)

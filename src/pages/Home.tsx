@@ -13,6 +13,7 @@ import Error from "./error";
 export default function Home() {
   const [location,setLocation]=useState<number>(67)
   const [refarash,setRefash]=useState(1)
+  const {session}=MakeSession()
   
   
   const{Expair}=MakeSession()
@@ -27,7 +28,8 @@ export default function Home() {
      return setEr(true)
      
     },
-    location:location
+    location:location,
+    id:session().id
   }
   
   const{refetch,data,isLoading}=Coustemgetallpost(props)

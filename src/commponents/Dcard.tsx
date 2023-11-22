@@ -8,15 +8,11 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import {motion} from "framer-motion"
-import Layout from "../commponents/Layout"
 import { Coustemgetallhistorypost } from '../api/historyapi';
 import MakeSession from "../utils/useSession"; 
 import {useMemo, useState } from "react"
 import { useNavigate } from 'react-router-dom';
-import Error from "./error";
-import HistorySearch from '../commponents/UI/historySearch';
-import Wcard from '../commponents/Wcard'
-
+import Error from "../pages/error";
 
 type authorprops={
   id:string
@@ -36,41 +32,37 @@ type postes={
 }
 
 export default function AlignItemsList() {
-  // const{Expair,session}=MakeSession()
-  // const Navigat=useNavigate()
-  // const [er,setEr]=useState(false)
-  // const [refarash,setRefash]=useState(1)
-  const [Current,setCurent]=useState<React.ReactNode>(<Wcard />)
+  const{Expair,session}=MakeSession()
+  const Navigat=useNavigate()
+  const [er,setEr]=useState(false)
+  const [refarash,setRefash]=useState(1)
 
 
-  // if(!Expair())  Navigat("/login")
-  // const id=session().id
-  // const props ={
-  //   onSuccess:(data)=>{
-  //       console.log(data);
+  if(!Expair())  Navigat("/login")
+  const id=session().id
+  const props ={
+    onSuccess:(data)=>{
+        console.log(data);
         
-  //   },
-  //   onError:()=>{
-  //       setEr(true)
-  //   },
-  //   id:id
-  // }
+    },
+    onError:()=>{
+        setEr(true)
+    },
+    id:id
+  }
 
-  // const {data,isLoading,refetch}=Coustemgetallhistorypost(props)
-  // useMemo(()=>{
-  //   setEr(false)
-  //   return refetch()
-  // }
-  //   ,[refarash])
+  const {data,isLoading,refetch}=Coustemgetallhistorypost(props)
+  useMemo(()=>{
+    setEr(false)
+    return refetch()
+  }
+    ,[refarash])
 
 
 
   return (
-    <div className=' bg-gradient-to-r  from-bottem from-0% via-xx via-40% to-bb to-150%  items-center h-screen'>
-    <Layout  search={<HistorySearch    setCurrent={setCurent} />} />
-    {Current}
-  
-      {/* {er?(<Error onClick={setRefash} />):(
+    <div>
+      {er?(<Error onClick={setRefash} />):(
         <div>
     {isLoading?(<Loading />):(
     <div className='overflow-auto h-129 '> 
@@ -112,7 +104,7 @@ export default function AlignItemsList() {
       </div>
       )}
       </div>
-      )} */}
+      )}
       </div>
   );
   
