@@ -24,7 +24,7 @@ const getposts=({id,img}:dataprops)=>{
 }
 
 export const Coustemprofilelogo=({onSuccess,onError,data}:coustemprops)=>{      
-return useQuery(['posts',data],()=>getposts(data),{
+return useQuery(['profilelogo',data],()=>getposts(data),{
     onSuccess,
     onError,
     select:(data)=>{

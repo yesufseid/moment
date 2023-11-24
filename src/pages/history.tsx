@@ -4,6 +4,7 @@ import MakeSession from "../utils/useSession";
 import { useNavigate } from 'react-router-dom';
 import HistorySearch from '../commponents/UI/historySearch';
 import Wcard from '../commponents/Wcard'
+import Sweach from '../commponents/UI/Sweach'
 
 
 
@@ -18,6 +19,7 @@ export default function AlignItemsList() {
     <div className=' bg-gradient-to-r  from-bottem from-0% via-xx via-40% to-bb to-150%  items-center h-screen'>
     <Layout  search={<HistorySearch    setCurrent={setCurent} />} />
     {Current}
+    <Sweach  setCurrent={setCurent} />
       </div>
   );
   

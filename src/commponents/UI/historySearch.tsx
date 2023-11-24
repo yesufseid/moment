@@ -24,3 +24,11 @@ export default function historySearch({setCurrent}:props) {
     </div>
   )
 }
+
+
+
+
+
+
+
+

@@ -2,21 +2,11 @@
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import {NavLink} from "react-router-dom"
-import makeSession from "../../utils/useSession"; 
 import {useNavigate } from "react-router-dom";
 import  {Coustemregister}  from "../../api/register";
 import {useState} from "react"
 import CircularProgress from '@mui/material/CircularProgress';
 
-type userprops={
-  id:string
-  email:string
-}
-type datprops={
-  accessToken:string
-  message:string
-  user:userprops
-}
 
 type inputprops = {
   email:string
@@ -52,7 +42,7 @@ export default function Basic(){
     <Formik
       initialValues={{ email:'', password:'',firstname:'',lastname:''}}
       validate={values => {
-        const errors:inputprops={}
+        const errors:any={}
         if (!values.email) {
           errors.email = 'Required';
         } else if (

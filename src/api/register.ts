@@ -39,7 +39,7 @@ const getposts=({email,password,firstname,lastname}:inputprops)=>{
 
 export const Coustemregister=({onError,onSuccess,data}:coustemprops)=>{   
     console.log(data);
-return useQuery(['posts',data],()=>getposts(data),{
+return useQuery(['register',data],()=>getposts(data),{
     onSuccess,
     onError,
     select:(data)=>{

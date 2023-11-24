@@ -5,7 +5,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Logoprofile(){
      const {session}=MakeSession()
-     const [image,setimage]=useState<unknown>()
+     const [image,setimage]=useState<any>()
      const props ={
         onSuccess:(data)=>{
             console.log(data);

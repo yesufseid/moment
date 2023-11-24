@@ -10,7 +10,7 @@ type coustemprops ={
 }
 
 type dataprops={
-    AllPosts:[]
+    post:[]
 }
 const getposts=(location,id)=>{
     
@@ -18,12 +18,6 @@ const getposts=(location,id)=>{
     url:'/allposts/allpost?location='+location+"$ userId="+id,
     })
 }
-type dprops={
-    id:string
-    userId:string
-    authorId:string
-}
-
 
 
 export const Coustemgetallpost=({onError,onSuccess,location,id}:coustemprops)=>{   

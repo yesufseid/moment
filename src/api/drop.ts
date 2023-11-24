@@ -24,7 +24,7 @@ const getposts=({postId}:dataProps)=>{
 }
 
 export const CoustemgetAccess=({onError,onSuccess,data}:coustemprops)=>{    
-return useQuery(['posts',data],()=>getposts(data),{
+return useQuery(['access',data],()=>getposts(data),{
     onSuccess,
     onError,
     select:(data:dataprops)=>{

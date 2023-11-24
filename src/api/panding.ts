@@ -15,13 +15,10 @@ const getposts=(id)=>{
     })
 }
 export const Coustemgetallhistorypost=({onSuccess,onError,id}:coustemprops)=>{      
-return useQuery(['posts',id],()=>getposts(id),{
+return useQuery(['panding',id],()=>getposts(id),{
     onSuccess,
     onError,
     select:(data:dataprops)=>{
-     
-        
-        
         return data.activitiy
     },
     // enabled:false

@@ -26,7 +26,7 @@ const getposts=({location,quate,id}:dataprops)=>{
 }
 
 export const Coustemgetallnewpost=({onSuccess,onError,data}:coustemprops)=>{      
-return useQuery(['posts',data],()=>getposts(data),{
+return useQuery(['post',data],()=>getposts(data),{
     onSuccess,
     onError,
     select:(data:[])=>{

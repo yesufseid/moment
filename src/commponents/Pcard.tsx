@@ -1,8 +1,7 @@
 import Loading from '../commponents/UI/Loading';
-
 import { Coustemgetallhistorypost } from '../api/panding';
 import MakeSession from "../utils/useSession"; 
-import {useMemo, useState } from "react"
+import {useState } from "react"
 import { useNavigate } from 'react-router-dom';
 import Error from "../pages/error";
 import PP from '../commponents/UI/pp'
@@ -40,7 +39,7 @@ export default function AlignItemsList() {
   const{Expair,session}=MakeSession()
   const Navigat=useNavigate()
   const [er,setEr]=useState(false)
-  const [refarash,setRefash]=useState(1)
+  
   const [data,setData]=useState([])
  
 
@@ -57,20 +56,16 @@ export default function AlignItemsList() {
     id:id
   }
 
-  const {isLoading,isFetching}=Coustemgetallhistorypost(props)
-  // useMemo(()=>{
-  //   setEr(false)
-  //   return refetch()
-  // }
-  //   ,[refarash])
+  const {isLoading}=Coustemgetallhistorypost(props)
+
 
 
 
   return (
     <div>
-      {er?(<Error onClick={setRefash} />):(
-        <div>
-    {isFetching?(<Loading />):(
+      {er&&(<Error />)}
+   
+    {isLoading&&(<Loading />)}
     <div className='overflow-auto h-129 '> 
     {
     data?.map((post:author)=>{
@@ -80,7 +75,7 @@ export default function AlignItemsList() {
         status:post.author.status,
         quate:post.author.quate,
         lastname:post.author.author.lastname,
-        postId:post.author.id
+        authorId:post.author.authorId
       }
         if(L===0){
           return(<PP all={all} />) 
@@ -90,9 +85,6 @@ export default function AlignItemsList() {
       }
       )}
       </div>
-      )}
-      </div>
-      )}
       </div>
   );
   

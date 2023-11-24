@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import {request} from "../utils/axios-utils"
 
 type dataProps={
-    postId:string
+    authorId:string
   }
 
 
@@ -15,19 +15,19 @@ type coustemprops ={
 type dataprops={
     profile:[]
 }
-const getposts=({postId}:dataProps)=>{
+const getposts=({authorId}:dataProps)=>{
     
     return request({ method:'get',
-    url:'/giveaccesseProfile/'+postId,
+    url:'/giveDDprofile/'+authorId,
     })
 }
 
-export const getprofile=({onError,onSuccess,data}:coustemprops)=>{ 
-    console.log(data);     
-return useQuery(['wdapi',data],()=>getposts(data),{
+export const getprofile=({onError,onSuccess,data}:coustemprops)=>{     
+return useQuery(['profile',data],()=>getposts(data),{
     onSuccess,
     onError,
     select:(data:dataprops)=>{
+        console.log(data.profile);
         return data.profile
     },
     // enabled:false

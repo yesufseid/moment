@@ -82,8 +82,9 @@ const queryFunction=(location:number)=>{
   return (
     <div className=' md:h-full h-screen md:w-full w-screen  bg-gradient-to-r  from-bottem from-0% via-xx via-40% to-bb to-150% items-center '>
       <Layout search={<Search fun={queryFunction} />} />
-    {er?(<Error  onClick={setRefash}/>
-       ):(<div>{isLoading?(<Loading />):(<Card data={data} />)} </div>)}
+    {er&&(<Error  onClick={setRefash}/>)}
+    {isLoading&&(<Loading />)}
+    <Card data={data} />
     </div>
   )}
 

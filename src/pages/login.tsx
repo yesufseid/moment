@@ -16,7 +16,6 @@ export default function login() {
   // const [email,setEmail]=useState("")
   const [pasword,setPassword]=useState("")
   const [error,setError]=useState(false)
-  const [validat,setValidat]=useState(false)
   const email=useRef(null)
   
   
@@ -89,7 +88,6 @@ const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => 
 
         <div>
         {error&&(<p className="text-red-600">wrong password</p>)}
-          {validat&&(<p className="text-red-600">all fildes are requred</p>)}
           <button disabled={isFetching} onClick={()=>handleSubmit()} className="flex w-32 py-2 my-5 mx-auto bg-slate-200 hover:outline hover:bg-transparent justify-center
            rounded-full align-middle">{isFetching?(<h1>LOADING</h1>):(<h1>SignIn</h1>)}</button>
         </div>

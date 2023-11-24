@@ -1,7 +1,7 @@
 
 
 type errorprops={
-    onClick:React.Dispatch<React.SetStateAction<number>>
+    onClick?:React.Dispatch<React.SetStateAction<number>>
 }
 
 export default function error({onClick}:errorprops) {

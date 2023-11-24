@@ -56,16 +56,16 @@ type dropProps={
         postId:postId
       }
     }
-    const{data}=CoustemgetAccess(props)
+    const{data,isLoading}=CoustemgetAccess(props)
     const{refetch,isFetching}=CoustemgiveAccesse(prop)
     return (
       <div className='md:w-80 w-72 h-32  mb-0 pb-0'>
+        {isLoading&&(<CircularProgress size={20}  className='ml-32 mt-14' />)}
              {data?.map((user:authorprops)=>
              <motion.div    key={user.id} className='flex border-2 mx-auto border-zinc-500 justify-center  rounded-lg  bg-transparent'
              initial={{y:'500'}}
              animate={{y:0}}
-             transition={{duration:1.5, delay:0.5}}
-            
+             transition={{duration:0.5, delay:0.5}}         
             >
             <List sx={{ width: '100%', maxWidth: 360, }}>
               <ListItem alignItems="flex-start" className='items-center'>
@@ -77,7 +77,7 @@ type dropProps={
                 />
 
               
-              <button  onClick={()=>refetch()} className='flex w-20 h-6 border-2 justify-center items-center border-violet-500 bg-transparent hover:bg-violet-500 rounded-2xl 
+              <button  onClick={()=>refetch()} className='flex w-32 h-6 border-2 justify-center items-center border-violet-500 bg-transparent hover:bg-violet-500 rounded-2xl 
               ml-auto '>
                 {isFetching&&(<div className="flex mx-2"><CircularProgress size={10}/></div>)}
                 connect</button>

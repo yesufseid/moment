@@ -49,7 +49,7 @@ export default function AlignItemsList() {
     id:id
   }
 
-  const {data,isFetching,refetch}=Coustemgetallhistorypost(props)
+  const {data,isLoading,refetch}=Coustemgetallhistorypost(props)
   useMemo(()=>{
     setEr(false)
     return refetch()
@@ -60,9 +60,8 @@ export default function AlignItemsList() {
 
   return (
     <div>
-      {er?(<Error onClick={setRefash} />):(
-        <div>
-    {isFetching?(<Loading />):(
+      {er&&(<Error onClick={setRefash} />)}
+    {isLoading&&(<Loading />)}
     <div className='overflow-auto h-129 '> 
     {
     data?.post.map((post:postes)=>{
@@ -94,9 +93,6 @@ export default function AlignItemsList() {
     } 
       )}
       </div>
-      )}
-      </div>
-      )}
       </div>
   );
   

@@ -35,7 +35,7 @@ const setprofile=({id,phone,Telegram,Instagram,Facebook,X,Website}:dataprops)=>{
 }
 
 export const Coustempostprofile=({onSuccess,onError,data}:coustemprops)=>{      
-return useQuery(['posts',data],()=>setprofile(data),{
+return useQuery(['profiles',data],()=>setprofile(data),{
     onSuccess,
     onError,
     select:(data:[])=>{

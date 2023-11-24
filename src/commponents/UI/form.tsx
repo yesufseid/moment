@@ -19,8 +19,8 @@ type datprops={
 }
 
 type inputprops = {
-  email:string
-  password:string
+  email:string|any
+  password:string|any
 }
 export default function Basic(){
     const [valuses,setValuse]=useState<inputprops>()
@@ -49,7 +49,7 @@ export default function Basic(){
     <Formik
       initialValues={{ email:'', password:'' }}
       validate={values => {
-        const errors:inputprops={}
+        const errors:any={}
         if (!values.email) {
           errors.email = 'Required';
         } else if (

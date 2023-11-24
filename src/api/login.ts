@@ -34,7 +34,7 @@ const getposts=(data:inputprops)=>{
 
 export const Coustemlogin=({onError,onSuccess,data}:coustemprops)=>{   
     console.log(data);
-return useQuery(['posts',data],()=>getposts(data),{
+return useQuery(['user',data],()=>getposts(data),{
     onSuccess,
     onError,
     select:(data:dataprops)=>{

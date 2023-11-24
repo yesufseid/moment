@@ -38,17 +38,11 @@ type dataProps={
 export default function AlignItemsList({data}:props) {
   const {session}=MakeSession()
  const [datas,setdata]=useState<dataProps>()
- const [disable,setDisable]=useState(false)
+
 
   const props ={
     onSuccess:(data)=>{
-      data.map((p)=>{
-        if(p.authorId===session().id){
-          setDisable(true)
-      }else{
-        setDisable(false)
-      }
-      })   
+      console.log(data)  
     },
     onError:(error)=>{
       console.log(error);
@@ -74,7 +68,7 @@ const handleClick=(test:dataProps)=>{
   return (
     <div className='overflow-auto h-128 w-full md:h-129  md:mt-0 mt-24'> 
     {data?.map((post:postes)=> 
-    <motion.div    key={post.id} className='flex border-2 border-zinc-500 justify-center md:w-96 w-80  mx-auto  my-3 rounded-lg '
+    <motion.div    key={post.id} className='flex border-2 border-zinc-500 justify-center md:w-130 w-80  mx-auto  my-3 rounded-lg '
      initial={{y:'500'}}
      animate={{y:0}}
      transition={{duration:1.5, delay:0.5}}

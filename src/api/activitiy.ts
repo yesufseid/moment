@@ -28,7 +28,7 @@ const getposts=({userId,authorId}:dataProps)=>{
 }
 
 export const Coustemgeactivitiy=({onError,onSuccess,data}:coustemprops)=>{    
-return useQuery(['posts',data],()=>getposts(data),{
+return useQuery(['activitiy',data],()=>getposts(data),{
     onSuccess,
     onError,
     select:(data:dataprops)=>{
