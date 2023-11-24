@@ -38,7 +38,7 @@ type wprops={
 export default function P({all}:wprops) {
  
   return (
-        <motion.div  className='flex border-2 border-zinc-500 justify-center md:w-96 w-80  mx-auto  my-3 rounded-lg  bg-gradient-to-r from-cyan-500 to-blue-500'
+        <motion.div  className='flex border-2 border-zinc-500 justify-center md:w-96 w-80  mx-auto  my-3 rounded-lg '
          initial={{y:'500'}}
          animate={{y:0}}
          transition={{duration:1.5, delay:0.5}}

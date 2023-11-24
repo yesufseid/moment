@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import {request} from "../utils/axios-utils"
 
 type dataProps={
-    userId:string
     postId:string
   }
 
@@ -14,21 +13,23 @@ type coustemprops ={
 }
 
 type dataprops={
-    users:[]
+    profile:[]
 }
 const getposts=({postId}:dataProps)=>{
     
     return request({ method:'get',
-    url:'/user/userposts/accesse/'+postId,
+    url:'/giveaccesseProfile/'+postId,
     })
 }
 
-export const CoustemgetAccess=({onError,onSuccess,data}:coustemprops)=>{    
+export const getprofile=({onError,onSuccess,data}:coustemprops)=>{ 
+    console.log(data);     
 return useQuery(['posts',data],()=>getposts(data),{
     onSuccess,
     onError,
     select:(data:dataprops)=>{
-        return data.users
+        console.log(data.profile);
+        return data.profile
     },
     // enabled:false
 })

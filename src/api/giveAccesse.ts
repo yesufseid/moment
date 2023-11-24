@@ -16,20 +16,24 @@ type coustemprops ={
 type dataprops={
     users:[]
 }
-const getposts=({postId}:dataProps)=>{
+const getposts=({postId,userId}:dataProps)=>{
+    console.log(postId);
     
-    return request({ method:'get',
-    url:'/user/userposts/accesse/'+postId,
+    return request({ method:'post',
+    url:'/giveaccesse',
+    data:{
+        postId:postId,
+        userId:userId
+    }
     })
 }
-
-export const CoustemgetAccess=({onError,onSuccess,data}:coustemprops)=>{    
+export const CoustemgiveAccesse=({onError,onSuccess,data}:coustemprops)=>{       
 return useQuery(['posts',data],()=>getposts(data),{
     onSuccess,
     onError,
     select:(data:dataprops)=>{
-        return data.users
+        return data
     },
-    // enabled:false
+    enabled:false
 })
 }

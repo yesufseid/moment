@@ -8,6 +8,9 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import {motion} from "framer-motion"
+import Dropdown from './dropdown';
+import WDcard from './WDcard';
+import {useState} from"react"
 
 
 type authorprops={
@@ -24,7 +27,7 @@ type postes={
   location:number
   quate:string
   author:authorprops
-  authorId:string
+ 
 }
 type wprops={
      all:{
@@ -32,11 +35,12 @@ type wprops={
         status:string
         quate:string
         lastname:string
+        postId:string
     }
 }
 
-export default function W({all}:wprops) {
- 
+export default function WD({all}:wprops) {
+     const [open,setOpen]=useState(false)
   return (
         <motion.div  className='flex border-2 border-zinc-500 justify-center md:w-130 w-80  mx-auto  my-3 rounded-lg '
          initial={{y:'500'}}
@@ -66,9 +70,15 @@ export default function W({all}:wprops) {
             />
           </ListItem>
           <Divider variant="inset" component="li" />
+          
           <button disabled={true} className='w-32 h-8 border-2 border-violet-500 bg-transparent hover:bg-violet-500 rounded-2xl mt-2
-           md:ml-56 ml-40'>{all.status}</button>
+           md:ml-56 ml-40'>Done</button>
+         <Dropdown   setOpen={setOpen} />
+          {open&&(<WDcard postId={all.postId} />)}    
           </List>
           </motion.div>
           )
 }
+
+
+// bg-gradient-to-r from-cyan-500 to-blue-500

@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Error from "../pages/error";
 import P from '../commponents/UI/P'
 import W from '../commponents/UI/W';
+import WD from './UI/WD';
 
 
 
@@ -25,6 +26,7 @@ type postes={
   author:authorprops
   authorId:string
   activitiy:[]
+  accesse:[]
 }
 
 export default function AlignItemsList() {
@@ -65,17 +67,30 @@ export default function AlignItemsList() {
     {
     data?.post.map((post:postes)=>{
       const L=post.activitiy.length
+      const C=post.accesse.length
       const all={
         firstname:data.firstname ,
         status:post.status,
         quate:post.quate,
         lastname:data.lastname,
+        postId:post.id,
       }
+      if(C===0){
         if(L===0){
           return (<W all={all} />) 
         }else{
          return(<P all={all} />)
         }
+      }else{
+        const all={
+          firstname:data.firstname ,
+          status:post.status,
+          quate:post.quate,
+          lastname:data.lastname,
+          postId:post.id,
+        }
+          return (<WD  all={all} />)
+      }
     } 
       )}
       </div>

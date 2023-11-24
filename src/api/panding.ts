@@ -19,8 +19,10 @@ return useQuery(['posts',id],()=>getposts(id),{
     onSuccess,
     onError,
     select:(data:dataprops)=>{
-        const post=data.activitiy.map((p)=>p)
-        return post
+     
+        
+        
+        return data.activitiy
     },
     // enabled:false
 })

@@ -1,25 +1,50 @@
 
-import { useState } from "react"
 import { CoustemgetAccess } from '../../api/drop';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import {motion} from "framer-motion"
+import CircularProgress from '@mui/material/CircularProgress';
+import { CoustemgiveAccesse } from '../../api/giveAccesse';
+import { useState } from 'react';
 import MakeSession from '../../utils/useSession';
 
 
-
 type dropProps={
-    authorId:string
+    postId?:string,
   }
   
-  
-  export default function dropCard({authorId}:dropProps) {
-     const{session}=MakeSession()
-  
-  
-  
-  
-    const id=session().id
+  type authorprops={
+    id:string
+    firstname:string
+    lastname:string
+    email:string
+    password:string
+  }
+  export default function dropCard({postId}:dropProps) {
+     const {session}=MakeSession()
+      const [id,setId]=useState("")  
     const props ={
       onSuccess:(data)=>{
-          return console.log(data);
+          return  data.map((user:authorprops)=>{
+            return setId(user.id)
+          })
+          
+      },
+      onError:(error)=>{
+          console.log(error);
+          
+      },
+      data:{
+        userId:session().id,
+        postId:postId
+      }
+    }
+    const prop ={
+      onSuccess:(data)=>{
+         return console.log(data);
           
       },
       onError:(error)=>{
@@ -28,18 +53,42 @@ type dropProps={
       },
       data:{
         userId:id,
-        authorId:authorId
+        postId:postId
       }
     }
-  
-    const{}=CoustemgetAccess(props)
-  
-  
-  
+    const{data}=CoustemgetAccess(props)
+    const{refetch,isFetching}=CoustemgiveAccesse(prop)
     return (
-      <div className='w-60 h-fit relative top-2 '>
-             
+      <div className='md:w-80 w-72 h-32  mb-0 pb-0'>
+             {data?.map((user:authorprops)=>
+             <motion.div    key={user.id} className='flex border-2 mx-auto border-zinc-500 justify-center  rounded-lg  bg-transparent'
+             initial={{y:'500'}}
+             animate={{y:0}}
+             transition={{duration:1.5, delay:0.5}}
+            
+            >
+            <List sx={{ width: '100%', maxWidth: 360, }}>
+              <ListItem alignItems="flex-start" className='items-center'>
+                <ListItemAvatar>
+                  <Avatar alt="Remy Sharp" sx={{ width: 32, height:  32 }}src="/static/images/avatar/1.jpg"   />
+                </ListItemAvatar> 
+                <ListItemText
+                  primary={user.firstname +" "+ user.lastname}
+                />
+
+              
+              <button  onClick={()=>refetch()} className='flex w-20 h-6 border-2 justify-center items-center border-violet-500 bg-transparent hover:bg-violet-500 rounded-2xl 
+              ml-auto '>
+                {isFetching&&(<div className="flex mx-2"><CircularProgress size={10}/></div>)}
+                connect</button>
+              </ListItem>
+              </List>
+              </motion.div>
+             )
+
+             }
       </div>
     )
   }
-  
+   
+

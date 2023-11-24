@@ -6,7 +6,7 @@ import {useMemo, useState } from "react"
 import { useNavigate } from 'react-router-dom';
 import Error from "../pages/error";
 import PP from '../commponents/UI/pp'
-import W from '../commponents/UI/W';
+import Done from '../commponents/UI/done';
 
 
 
@@ -25,8 +25,16 @@ type postes={
   quate:string
   author:authorprops
   authorId:string
-  access:[]
+  accesse:[]
 }
+type author={
+  author:postes
+  authorId:string
+  id:string
+  userId:string
+}
+
+
 
 export default function AlignItemsList() {
   const{Expair,session}=MakeSession()
@@ -34,7 +42,7 @@ export default function AlignItemsList() {
   const [er,setEr]=useState(false)
   const [refarash,setRefash]=useState(1)
   const [data,setData]=useState([])
-  const [open,setOpen]=useState(false)
+ 
 
 
   if(!Expair())  Navigat("/login")
@@ -65,20 +73,20 @@ export default function AlignItemsList() {
     {isFetching?(<Loading />):(
     <div className='overflow-auto h-129 '> 
     {
-    data?.map((post:postes)=>{
-      const L=post.access.length
+    data?.map((post:author)=>{
+      const L=post.author.accesse.length
       const all={
-        firstname:post.author.firstname ,
-        status:post.status,
-        quate:post.quate,
-        lastname:post.author.lastname,
+        firstname:post.author.author.firstname ,
+        status:post.author.status,
+        quate:post.author.quate,
+        lastname:post.author.author.lastname,
+        postId:post.author.id
       }
         if(L===0){
           return(<PP all={all} />) 
         }else{
-          return (<W all={all} />) 
+          return (<Done all={all} />) 
         }
-   
       }
       )}
       </div>
