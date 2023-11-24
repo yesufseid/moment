@@ -42,7 +42,7 @@ export default function Profile({onClick}:props) {
   }
 const {refetch,isFetching}=Coustempostprofile(props)
   return (
-    <motion.div className="w-auto bg-slate-400 h-130 overflow-auto  absolute top-20  md:left-1/3  z-20 left-5  shadow-2xl rounded-lg p-5"
+    <motion.div className="w-auto bg-slate-400 h-129 overflow-auto  absolute top-20  md:left-1/3  z-20 left-5  shadow-2xl rounded-lg p-5"
      initial={{y:'-100vh'}}
      animate={{y:0}}
      transition={{duration:0.5, delay:0.5, type:"spring", stiffness:30 }}
@@ -56,44 +56,44 @@ const {refetch,isFetching}=Coustempostprofile(props)
    </div> 
    
     <div className="md:flex mx-2   md:mx-5"> 
-    <div><input type="text "  className="md:w-32 h-10 w-28 border-2 border-zinc-950 rounded-2xl my-2"  value="   phone" readOnly /></div>
-    <div className="ml-10"><textarea onChange={(e)=>setPhone({phone:e.target.value})}  placeholder="+2519********" className="md:w-60 w-52  caret-pink-500 border-2 border-zinc-950 rounded-2xl my-2" /></div>
+    <div><input type="text "  className="md:w-32 h-10 w-28 border-2 border-zinc-950 rounded-2xl "  value="   phone" readOnly /></div>
+    <div className="ml-10"><textarea onChange={(e)=>setPhone({phone:e.target.value})}  placeholder="+2519********" className="md:w-60 w-52 text-center h-10  caret-pink-500 border-2 border-zinc-950 rounded-2xl " /></div>
     </div> 
     
     <div className="md:flex  mx-2   md:mx-5">
-    <div><input type="text " value="    Telegram" readOnly className="md:w-32 h-10 w-28 border-2 border-zinc-950 rounded-2xl my-2"  /></div>
+    <div><input type="text " value="    Telegram" readOnly className="md:w-32 h-10 w-28 border-2 border-zinc-950 rounded-2xl md:my-2"  /></div>
    
-    <div className="ml-10"><textarea onChange={(e)=>setT({Telegram:e.target.value})}   placeholder="@moment" className="md:w-60 w-52  caret-pink-500 border-2 border-zinc-950 rounded-2xl my-2" /></div>
+    <div className="ml-10"><textarea onChange={(e)=>setT({Telegram:e.target.value})}   placeholder="@moment" className="md:w-60 w-52 text-center h-10 caret-pink-500 border-2 md:my-2 border-zinc-950 rounded-2xl " /></div>
     </div>
 
     <div className="md:flex  mx-2   md:mx-5">
      
-    <div><input type="text " value="   Facebook" readOnly className="md:w-32 h-10 w-28 border-2 border-zinc-950 rounded-2xl my-2"  /></div>
+    <div><input type="text " value="   Facebook" readOnly className="md:w-32 h-10 w-28 border-2 border-zinc-950 rounded-2xl "  /></div>
  
    
-    <div className="ml-10"><textarea  onChange={(e)=>setF({Facebook:e.target.value})}  placeholder="moment" className="md:w-60 w-52 caret-pink-500 border-2 border-zinc-950 rounded-2xl my-2" /></div>
+    <div className="ml-10"><textarea  onChange={(e)=>setF({Facebook:e.target.value})}  placeholder="moment" className="md:w-60 w-52 text-center h-10 caret-pink-500 border-2 border-zinc-950 rounded-2xl  " /></div>
     </div>
   
   
     <div className="md:flex  mx-2   md:mx-5">
-    <div><input type="text " value="   Instagram" readOnly  className="md:w-32 h-10 w-28 border-2 border-zinc-950 rounded-2xl my-2"  /></div>
+    <div><input type="text " value="   Instagram" readOnly  className="md:w-32 h-10 w-28 border-2 border-zinc-950 rounded-2xl my-2 "  /></div>
     
    
-    <div className="ml-10"><textarea onChange={(e)=>setI({Instagram:e.target.value})}   placeholder="moment" className="md:w-60 w-52  caret-pink-500 border-2 border-zinc-950 rounded-2xl my-2" /></div>
+    <div className="ml-10"><textarea onChange={(e)=>setI({Instagram:e.target.value})}   placeholder="moment" className="md:w-60 md:my-2 w-52 text-center h-10 caret-pink-500 border-2 border-zinc-950 rounded-2xl " /></div>
     </div>
 
     <div className="md:flex  mx-2   md:mx-5">
      
-    <div><input type="text " value="     X" readOnly className="md:w-32 h-10 w-28 border-2 border-zinc-950 rounded-2xl my-2"  /></div>
+    <div><input type="text " value="     X" readOnly className="md:w-32 h-10 w-28 border-2 border-zinc-950 rounded-2xl "  /></div>
    
-    <div className="ml-10"><textarea onChange={(e)=>setX({X:e.target.value})}  placeholder="moment" className="md:w-60 w-52  caret-pink-500 border-2 border-zinc-950 rounded-2xl my-2" /></div>
+    <div className="ml-10"><textarea onChange={(e)=>setX({X:e.target.value})}  placeholder="moment" className="md:w-60 w-52 text-center h-10 caret-pink-500 border-2 border-zinc-950 rounded-2xl " /></div>
     </div>
 
     <div className="md:flex  mx-2   md:mx-5"> 
-    <div><input type="text " value="    Website" readOnly className="md:w-32 h-10 w-28 border-2 border-zinc-950 rounded-2xl my-2"  /></div>
+    <div><input type="text " value="    Website" readOnly className="md:w-32 h-10 w-28 border-2 border-zinc-950 rounded-2xl md:my-2"  /></div>
     
    
-    <div className="ml-10"><textarea onChange={(e)=>setW({Website:e.target.value})}   placeholder="https://moment.com" className="md:w-60 w-52  caret-pink-500 border-2 border-zinc-950 rounded-2xl my-2" /></div>
+    <div className="ml-10"><textarea onChange={(e)=>setW({Website:e.target.value})}   placeholder="https://moment.com" className="md:w-60 w-52  text-center h-10 caret-pink-500 border-2 border-zinc-950 rounded-2xl md:my-2" /></div>
     </div>
 
 
@@ -103,8 +103,8 @@ const {refetch,isFetching}=Coustempostprofile(props)
 
 
 
-  <div className="flex justify-end align-middle pb-2 mr-5">
-  <Button onClick={()=>refetch()} className="w-24  pt-2 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500
+  <div className="flex justify-end align-middle mr-5">
+  <Button onClick={()=>refetch()} className="w-24   bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500
    hover:to-yellow-50  " variant="outlined">{isFetching&&(<div className="flex mx-2"><CircularProgress size={20}/></div>)}Save</Button>
   {/* <AddIcon onClick={()=>setAdd((prev)=>[...prev,"q"])}  fontSize="large" className="rounded-full
   text-4xl   ml-2 md:mr-0 mr-5 border-2 border-slate-900   hover:bg-slate-900  text-center  "/> */}

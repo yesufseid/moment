@@ -3,8 +3,7 @@ import {request} from "../utils/axios-utils"
 
 
 type dataprops={
-    location:number
-    quate:string
+    img:unknown
     id:string
 }
 
@@ -13,23 +12,22 @@ type coustemprops ={
     onSuccess:(test)=>void
     onError:(test)=>void
 }
-const getposts=({location,quate,id}:dataprops)=>{
+const getposts=({id,img}:dataprops)=>{
     console.log(id+"   seya");
     return request({
         method:'post',
         url: '/post',
         data: {
-          location:location,
-          quate:quate,
+          img:img,
           authorId:id,
           }})
 }
 
-export const Coustemgetallnewpost=({onSuccess,onError,data}:coustemprops)=>{      
-return useQuery(['post',data],()=>getposts(data),{
+export const Coustemprofilelogo=({onSuccess,onError,data}:coustemprops)=>{      
+return useQuery(['profilelogo',data],()=>getposts(data),{
     onSuccess,
     onError,
-    select:(data:[])=>{
+    select:(data)=>{
         return data  
     },
     enabled:false

@@ -7,20 +7,20 @@ type coustemprops ={
     onError:(test)=>void
 }
 type dataprops={
-    userPosts:[]
+    activitiy:[]
 }
 const getposts=(id)=>{
     return request({ method:'get',
-    url:'/user/userposts/'+id,
+    url:'/user/userposts/panding/'+id,
     })
 }
 export const Coustemgetallhistorypost=({onSuccess,onError,id}:coustemprops)=>{      
-return useQuery(['history',id],()=>getposts(id),{
+return useQuery(['panding',id],()=>getposts(id),{
     onSuccess,
     onError,
     select:(data:dataprops)=>{
-       return data.userPosts
+        return data.activitiy
     },
-    enabled:false
+    // enabled:false
 })
 }
