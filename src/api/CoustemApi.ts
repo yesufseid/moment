@@ -25,8 +25,7 @@ return useQuery(['posts',location,id],()=>getposts(location,id),{
     onSuccess,
     onError,
     select:(data:dataprops)=>{
-     return data.post 
-        
+     return data.post     
     },
     enabled:false
 })

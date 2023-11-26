@@ -56,7 +56,7 @@ return (
     transition={{duration:0.5, type:"spring", stiffness:50,when:"beforeChildern"}}
     >
       <DynamicFeedIcon fontSize="large" className="mr-5"/>
-       <NavLink to={"/history"}>History</NavLink>
+       <NavLink to={"/zxcvbnmasdfgthydgsgbsn"}>History</NavLink>
 
     </motion.div>
      </div>

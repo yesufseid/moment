@@ -11,6 +11,7 @@ import {motion} from "framer-motion"
 import MakeSession from "../utils/useSession";
 import { Coustemgeactivitiy } from "../api/activitiy";
 import CircularProgress from '@mui/material/CircularProgress';
+import Emepty from "../pages/emepty";
 type props={
   data:[]
 }
@@ -67,8 +68,8 @@ const handleClick=(test:dataProps)=>{
 
   return (
     <div className='overflow-auto h-128 w-full md:h-129  md:mt-0 mt-24'> 
-    {data?.map((post:postes)=> 
-    <motion.div    key={post.id} className='flex border-2 border-zinc-500 justify-center md:w-130 w-80  mx-auto  my-3 rounded-lg '
+    {data?.map((post:postes)=>{   
+    return  <motion.div    key={post.id} className='flex border-2 border-zinc-500 justify-center md:w-130 w-80  mx-auto  my-3 rounded-lg '
      initial={{y:'500'}}
      animate={{y:0}}
      transition={{duration:1.5, delay:0.5}}
@@ -102,6 +103,7 @@ const handleClick=(test:dataProps)=>{
        md:ml-56 ml-40'>{isFetching&&(<div className="flex mx-2"><CircularProgress size={20}/></div>)} Connect</button>
       </List>
       </motion.div>
+    } 
       )}
       </div>
   );

@@ -8,21 +8,23 @@ import Loading from "../commponents/UI/Loading";
 import MakeSession from "../utils/useSession"; 
 import { useNavigate } from 'react-router-dom';
 import Error from "./error";
+import Emepty from "./emepty";
 
 
+ 
 export default function Home() {
   const [location,setLocation]=useState<number>(67)
   const [refarash,setRefash]=useState(1)
-  const {session}=MakeSession()
-  
-  
-  const{Expair}=MakeSession()
+  const{Expair,session}=MakeSession()
   const Navigat=useNavigate()
   const [er,setEr]=useState(false)
+  const [emepty,setEmepty]=useState(false)
+  if(!session().accessToken) Navigat("/login")
+  if(!Expair())  Navigat("/login")
 
   const props ={
     onSuccess:(data)=>{
-      return data 
+      if(data.length===0) return setEmepty(true)
     },
     onError:()=>{
      return setEr(true)
@@ -37,9 +39,6 @@ export default function Home() {
 
 
 const xx=()=>{
-  console.log("xx");
-  
-  if(!Expair())  Navigat("/login")
   setEr(false)
   try {
     if ("geolocation" in navigator) {
@@ -81,9 +80,10 @@ const queryFunction=(location:number)=>{
 
   return (
     <div className=' md:h-full h-screen md:w-full w-screen  bg-gradient-to-r  from-bottem from-0% via-xx via-40% to-bb to-150% items-center '>
-      <Layout search={<Search fun={queryFunction} />} />
+    <Layout search={<Search fun={queryFunction} />} />
     {er&&(<Error  onClick={setRefash}/>)}
     {isLoading&&(<Loading />)}
+    {emepty&&(<Emepty />)}
     <Card data={data} />
     </div>
   )}

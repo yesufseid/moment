@@ -6,7 +6,6 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 
 
-
 type dropProps={
     authorId:string
   }
@@ -14,8 +13,7 @@ type dropProps={
   export default function dropCard({authorId}:dropProps) {
     const props ={
       onSuccess:(data)=>{
-          return console.log(data);
-          
+        return data   
       },
       onError:(error)=>{
           console.log(error);

@@ -10,11 +10,11 @@ import Sweach from '../commponents/UI/Sweach'
 
 
 export default function AlignItemsList() {
-  const{Expair}=MakeSession()
+  const{Expair,session}=MakeSession()
   const Navigat=useNavigate()
   const [Current,setCurent]=useState<React.ReactNode>(<Wcard />)
+  if(!session().accessToken) Navigat("/login")
   if(!Expair())  Navigat("/login")
-
   return (
     <div className=' bg-gradient-to-r  from-bottem from-0% via-xx via-40% to-bb to-150%  items-center h-screen'>
     <Layout  search={<HistorySearch    setCurrent={setCurent} />} />

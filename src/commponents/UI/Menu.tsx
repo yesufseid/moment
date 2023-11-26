@@ -1,5 +1,5 @@
 
-import { Logoprofile } from "./Logo"
+import Logoprofile  from "./profile-img"
 import DangerousIcon from '@mui/icons-material/Dangerous';
 import {motion} from "framer-motion"
 
@@ -14,7 +14,7 @@ type menuprops={
 export default function Menu({onClick,children}:menuprops) {
 
   return (
-    <motion.div className=" w-80    h-screen absolute top-0 left-0 bottom-0 bg-black  z-20 border-r-2 rounded-2xl"
+    <motion.div className=" md:w-90 w-80  h-screen absolute top-0 left-0 bottom-0 bg-black  z-20 border-r-2 rounded-2xl"
      initial={{x:'-100vw'}}
      animate={{x:0,}}
      transition={{duration:1,type:"spring" , when:"beforeChildern"}}

@@ -41,10 +41,6 @@ type wprops={
 
 export default function P({all}:wprops) {
      const [open,setOpen]=useState(false)
-
-
-
-
   return (
         <motion.div  className='flex border-2 border-zinc-500 justify-center md:w-130 w-80  mx-auto  my-3 rounded-lg '
          initial={{y:'500'}}

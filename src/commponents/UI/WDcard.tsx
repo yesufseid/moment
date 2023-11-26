@@ -11,7 +11,7 @@ type dropProps={
   export default function dropCard({postId}:dropProps) {
     const props ={
       onSuccess:(data)=>{
-          return console.log(data);
+       return data
           
       },
       onError:(error)=>{
