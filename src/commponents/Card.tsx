@@ -11,7 +11,7 @@ import {motion} from "framer-motion"
 import MakeSession from "../utils/useSession";
 import { Coustemgeactivitiy } from "../api/activitiy";
 import CircularProgress from '@mui/material/CircularProgress';
-import Emepty from "../pages/emepty";
+
 type props={
   data:[]
 }
