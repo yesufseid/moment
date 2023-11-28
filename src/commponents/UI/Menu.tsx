@@ -7,11 +7,12 @@ import {motion} from "framer-motion"
 
 type menuprops={
     onClick:React.Dispatch<React.SetStateAction<boolean>>,
-    children:React.ReactNode
+    children:React.ReactNode,
+    image:string
 }
 
 
-export default function Menu({onClick,children}:menuprops) {
+export default function Menu({onClick,children,image}:menuprops) {
 
   return (
     <motion.div className=" md:w-90 w-80  h-screen absolute top-0 left-0 bottom-0 bg-black  z-20 border-r-2 rounded-2xl"
@@ -23,7 +24,7 @@ export default function Menu({onClick,children}:menuprops) {
     >
         <div className=" bg-white   pt-3  pb-5 border-r-2 rounded-2xl">
         <DangerousIcon  className="ml-80  mr-5 cursor-pointer" fontSize="large" onClick={()=>onClick(prev=>!prev)}/>
-        <Logoprofile />
+        <Logoprofile images={image}  />
         </div>
         <div>
         {children}

@@ -3,7 +3,7 @@ import {request} from "../utils/axios-utils"
 
 
 type dataprops={
-    img?:unknown
+    img:unknown
     id:string
 }
 
@@ -12,7 +12,7 @@ type coustemprops ={
     onSuccess:(test)=>void
     onError:(test)=>void
 }
-const getposts=({id,img}:dataprops)=>{
+const getposts=({id,img}:dataprops)=>{ 
     return request({
         method:'post',
         url: '/user/createprofileImg',
@@ -21,31 +21,9 @@ const getposts=({id,img}:dataprops)=>{
           authorId:id,
           }})
 }
-const getprofileImg=({id}:dataprops)=>{
-    return request({
-        method:'get',
-        url: '/user/getprofileImg/'+id,
-        })
-}
-export const CoustemprofilelogogetImg=({onSuccess,onError,data}:coustemprops)=>{    
-    return useQuery(['profilelogoImg',data],()=>getprofileImg(data),{
-        onSuccess,
-        onError,
-        select:(data)=>{
-            console.log(data);
-            
-            // return data  
-        },
-    })
-    }
 
 
-
-
-
-
-export const Coustemprofilelogo=({onSuccess,onError,data}:coustemprops)=>{  
-    console.log(data);      
+export const Coustemprofilelogo=({onSuccess,onError,data}:coustemprops)=>{         
 return useQuery(['profilelogo',data],()=>getposts(data),{
     onSuccess,
     onError,
